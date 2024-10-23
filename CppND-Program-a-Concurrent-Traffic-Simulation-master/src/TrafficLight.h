@@ -46,7 +46,7 @@ public:
     ~TrafficLight();
 
     // getters / setters
-    void getTrafficLight();  // type "void"?
+    string getTrafficLight();  // type "string"?
 
     // typical behaviour methods
     void waitForGreen();
@@ -67,9 +67,9 @@ private:
     std::mutex _mutex;
 };
 
-void getTrafficLight(string _currentPhase)  // define getter
+string TrafficLight::getTrafficLight()  // define getter
 {
-    //_currentPhase;  // get CURRENT PHASE
+    return _currentPhase;
 }
 
 #endif
