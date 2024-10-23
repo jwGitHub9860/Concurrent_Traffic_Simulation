@@ -46,7 +46,7 @@ public:
     ~TrafficLight();
 
     // getters / setters
-    string getTrafficLight();  // type "string"?
+    string getTrafficLight();  // type "string"? ----> is enum a "string"
 
     // typical behaviour methods
     void waitForGreen();
