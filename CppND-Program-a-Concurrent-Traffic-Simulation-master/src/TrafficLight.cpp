@@ -1,6 +1,11 @@
 #include <iostream>
 #include <random>
+#include <chrono>
+#include <cstdlib>  // defines "rand()" & "srand()"
+#include <ctime>    // defines "time()"
 #include "TrafficLight.h"
+
+using namespace std;
 
 /* Implementation of class "MessageQueue" */
 
@@ -53,5 +58,43 @@ void TrafficLight::cycleThroughPhases()
     // and toggles the current phase of the traffic light between red and green and sends an update method 
     // to the message queue using move semantics. The cycle duration should be a random value between 4 and 6 seconds. 
     // Also, the while-loop should use std::this_thread::sleep_for to wait 1ms between two cycles. 
+    while (true)    // infinite loop
+    {
+        srand(time(0));     // ensures each program run produces different random numbers
+        int rand_min = 4;   // Minimum random value
+        int rand_max = 6;   // Maximum random value
+
+        int loop_num = 0;   // initializes "loop_num"
+        auto start_time = high_resolution_clock::now(); // gets current time BEFORE loop starts
+
+        while (true)    // infinite loop
+        {
+            //int rand_value = rand_min + rand() % (rand_max - rand_min + 1); // produces random number between 0 & "rand_max - rand_min"
+
+            _currentPhase = red;
+            cout << "Traffic Light is red." << endl;    // Traffic Light message
+            //this_thread::sleep_for(chrono::seconds(rand_value));    // waits between 4 to 6 seconds before switching light
+            _currentPhase = green;
+            cout << "Traffic Light is green." << endl;    // Traffic Light message
+            //this_thread::sleep_for(chrono::seconds(rand_value));    // waits between 4 to 6 seconds before switching light
+
+
+            // SEND UPDATE METHOD TO MESSAGE QUEUE USING MOVE SEMANTICS
+
+
+            loop_num++;
+            if (loop_num % 2 == 0)  // checks if 2 loops have passed
+            {
+                auto end_time = high_resolution_clock::now();    // gets current time AFTER 2 loops end
+                auto cycle_duration = duration_cast<seconds>(end_time - start_time);    // calculates time duration BETWEEN 2 loops
+                
+                cout << "Two loop cycle time: " << cycle_duration.count() << " seconds" << endl;
+
+                this_thread::sleep_for(chrono::milliseconds(1));    // waits 1ms AFTER 2 cycles passed
+
+                auto start_time = high_resolution_clock::now(); // gets current time BEFORE loop starts
+            }
+        }
+    }
 }
 
