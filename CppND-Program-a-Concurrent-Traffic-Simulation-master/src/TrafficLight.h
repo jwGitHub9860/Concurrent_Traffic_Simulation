@@ -4,7 +4,10 @@
 #include <mutex>
 #include <deque>
 #include <condition_variable>
+#include <string>
 #include "TrafficObject.h"
+
+using namespace std;
 
 // forward declarations to avoid include cycle
 class Vehicle;
@@ -43,17 +46,18 @@ public:
     ~TrafficLight();
 
     // getters / setters
-    getTrafficLight();  // FIX
-    setTrafficLight();  // FIX
+    void getTrafficLight();  // type "void"?
 
     // typical behaviour methods
     void waitForGreen();
     void simulate();
-    TrafficLightPhase::getCurrentPhase();
+    TrafficLightPhase TrafficLight::getCurrentPhase();
 
 private:
     // typical behaviour methods
     void cycleThroughPhases();
+
+    string _currentPhase;   // should it be "string" or not?
 
     // FP.4b : create a private member of type MessageQueue for messages of type TrafficLightPhase 
     // and use it within the infinite loop to push each new TrafficLightPhase into it by calling 
@@ -62,5 +66,10 @@ private:
     std::condition_variable _condition;
     std::mutex _mutex;
 };
+
+void getTrafficLight(string _currentPhase)  // define getter
+{
+    //_currentPhase;  // get CURRENT PHASE
+}
 
 #endif
