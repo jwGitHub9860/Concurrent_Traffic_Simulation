@@ -69,7 +69,7 @@ private:
 
 string TrafficLight::getTrafficLight()  // define getter
 {
-    return _currentPhase;
+    return _currentPhase;   // CORRECT or not?
 }
 
 #endif
