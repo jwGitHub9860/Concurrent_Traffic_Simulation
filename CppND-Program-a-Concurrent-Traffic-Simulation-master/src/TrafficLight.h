@@ -22,8 +22,8 @@ template <class T>
 class MessageQueue
 {
 public:
-    void T::send(T &&msg);
-    T T::receive();
+    void send(T &&msg);
+    T receive();
     deque _queue;   // stores TrafficLightPhase objects     PUBLIC or PRIVATE?
     TrafficLightPhase&& r_val;    // declares rvalue reference      DONE CORRECTLY?     or is it
 
