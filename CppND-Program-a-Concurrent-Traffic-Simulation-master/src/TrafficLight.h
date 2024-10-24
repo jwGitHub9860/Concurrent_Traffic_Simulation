@@ -43,7 +43,7 @@ enum class TrafficLightPhase    // prevents naming collisions       MUST USE "Tr
     red, green
 };
 
-class TrafficLight
+class TrafficLight : public TrafficObject   // child class of TrafficObject
 {
 public:
     // constructor / destructor
