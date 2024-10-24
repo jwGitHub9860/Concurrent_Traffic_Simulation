@@ -1,3 +1,5 @@
+"condition_variable Class." Microsoft Learn, 2 Aug. 2021, TylerMSFT, ghogen, mdsebolt, mikeblome, Mikejo5000, Saisang, v-kents, learn.microsoft.com/en-us/cpp/standard-library/condition-variable-class?view=msvc-170. Accessed 24 Oct. 2024.
+
 "How do I generate a random number between two variables that I have stored?" Stack Overflow, 1 Jan. 1958, stackoverflow.com/questions/12657962/how-do-i-generate-a-random-number-between-two-variables-that-i-have-stored. Accessed 23 Oct. 2024.
 
 "Measure execution time of a function in C++." GeeksforGeeks, 11 Oct. 2024, www.geeksforgeeks.org/measure-execution-time-function-cpp/. Accessed 23 Oct. 2024.
