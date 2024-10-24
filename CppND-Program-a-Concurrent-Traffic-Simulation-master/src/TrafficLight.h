@@ -51,18 +51,17 @@ public:
     ~TrafficLight();
 
     // getters / setters
-    string getTrafficLight();  // type "string"? ----> is enum a "string"
+    TrafficLightPhase getCurrentPhase();
 
     // typical behaviour methods
     void waitForGreen();
     void simulate();
-    TrafficLightPhase getCurrentPhase();
 
 private:
     // typical behaviour methods
     void cycleThroughPhases();
 
-    string _currentPhase;   // should it be "string" or not?
+    TrafficLightPhase _currentPhase;
 
     // FP.4b : create a private member of type MessageQueue for messages of type TrafficLightPhase 
     // and use it within the infinite loop to push each new TrafficLightPhase into it by calling 
@@ -73,7 +72,7 @@ private:
     std::mutex _mutex;
 };
 
-string TrafficLight::getTrafficLight()  // define getter
+TrafficLightPhase TrafficLight::getCurrentPhase()  // define getter
 {
     return _currentPhase;   // CORRECT or not?
 }
