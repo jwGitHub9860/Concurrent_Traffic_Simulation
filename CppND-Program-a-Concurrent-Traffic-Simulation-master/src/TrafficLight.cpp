@@ -76,10 +76,10 @@ void TrafficLight::cycleThroughPhases()
         {
             //int rand_value = rand_min + rand() % (rand_max - rand_min + 1); // produces random number between 0 & "rand_max - rand_min"
 
-            _currentPhase = red;
+            _currentPhase = TrafficLightPhase::red;
             cout << "Traffic Light is red." << endl;    // Traffic Light message
             //this_thread::sleep_for(chrono::seconds(rand_value));    // waits between 4 to 6 seconds before switching light
-            _currentPhase = green;
+            _currentPhase = TrafficLightPhase::green;
             cout << "Traffic Light is green." << endl;    // Traffic Light message
             //this_thread::sleep_for(chrono::seconds(rand_value));    // waits between 4 to 6 seconds before switching light
 
