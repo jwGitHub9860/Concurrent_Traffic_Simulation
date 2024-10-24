@@ -9,3 +9,4 @@
 
 "std::lock_guard." cplusplus.com, cplusplus.com/reference/mutex/lock_guard/. Accessed 24 Oct. 2024.
 
+"Why is enum class considered safer to use than plain enum?" Stack Overflow, 1 Nov. 1958, stackoverflow.com/questions/18335861/why-is-enum-class-considered-safer-to-use-than-plain-enum. Accessed 24 Oct. 2024.
