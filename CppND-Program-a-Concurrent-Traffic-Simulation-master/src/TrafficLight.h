@@ -24,7 +24,7 @@ class MessageQueue
 public:
     void send(T &&msg);
     T receive();
-    deque _queue;   // stores TrafficLightPhase objects     PUBLIC or PRIVATE?
+    deque<T> _queue;   // stores TrafficLightPhase objects     PUBLIC or PRIVATE?
     TrafficLightPhase&& r_val;    // declares rvalue reference      DONE CORRECTLY?     or is it
 
 private:
