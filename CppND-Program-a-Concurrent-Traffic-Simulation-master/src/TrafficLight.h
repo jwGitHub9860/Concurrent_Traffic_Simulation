@@ -74,7 +74,7 @@ private:
 
 TrafficLightPhase TrafficLight::getCurrentPhase()  // define getter
 {
-    return _currentPhase;   // CORRECT or not?
+    return _currentPhase;
 }
 
 #endif
