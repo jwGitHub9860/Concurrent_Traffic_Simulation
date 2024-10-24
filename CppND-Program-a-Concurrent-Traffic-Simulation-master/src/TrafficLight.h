@@ -22,9 +22,14 @@ template <class T>
 class MessageQueue
 {
 public:
+    void T::send(T &&msg);
+    T T::receive();
+    deque _queue;   // stores TrafficLightPhase objects     PUBLIC or PRIVATE?
+    TrafficLightPhase&& r_val;    // declares rvalue reference      DONE CORRECTLY?     or is it
 
 private:
-    
+    condition_variable cond_var;
+    mutex mtx;
 };
 
 // FP.1 : Define a class „TrafficLight“ which is a child class of TrafficObject. 
