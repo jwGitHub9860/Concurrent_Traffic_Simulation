@@ -19,7 +19,7 @@ T MessageQueue<T>::receive()
     unique_lock<mutex> uni_lck(mtx);    // performs queue modification under the lock
     _condition.wait(uni_lck, [this] { return != _messages.empty(); })   // passes unique lock to "_condition"       [this] { return != _messages.empty(); } ----> lambda function that give "this" access to "_messages"
     
-    msg = move(_messages.back());   // converts "_messages" value into rvalue using Move Semantics
+    T msg = move(_messages.back());   // converts "_messages" value into rvalue using Move Semantics
     _messages.pop_back();
 
     return msg;
