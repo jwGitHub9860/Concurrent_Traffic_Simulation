@@ -86,20 +86,10 @@ void TrafficLight::cycleThroughPhases()
         while (true)    // infinite loop
         {
             auto cycle_duration = chrono::seconds((rand() % 3) + 4);    // limits cycle duration to 4-6 seconds       (rand() % 3) ---> produces random number between 0 & 2
-
+            this_thread::sleep_for(chrono::milliseconds(cycle_duration));    // waits 4-6 seconds
             _currentPhase = (_currentPhase == TrafficLightPhase::red) ? TrafficLightPhase::red : TrafficLightPhase::green;  // toggles between "red" & "green"
-
-
-            // SEND UPDATE METHOD TO MESSAGE QUEUE USING MOVE SEMANTICS
-
-
-            loop_num++;
-            if (loop_num % 2 == 0)  // checks if 2 loops have passed
-            {
-                cout << "Two loop cycle time: " << cycle_duration.count() << " seconds" << endl;
-
-                this_thread::sleep_for(chrono::milliseconds(1));    // waits 1ms AFTER 2 cycles passed
-            }
+            _messages.send(move(_currentPhase));    // "move()" converts "_currentPhase" into rvalue
+            this_thread::sleep_for(chrono::milliseconds(1));    // waits 1ms
         }
     }
 }

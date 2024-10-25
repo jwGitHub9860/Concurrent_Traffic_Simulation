@@ -4,6 +4,7 @@
         "xstring": "cpp",
         "deque": "cpp",
         "list": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "ostream": "cpp"
     }
 }
