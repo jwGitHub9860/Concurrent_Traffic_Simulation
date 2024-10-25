@@ -16,6 +16,8 @@ T MessageQueue<T>::receive()
     // FP.5a : The method receive should use std::unique_lock<std::mutex> and _condition.wait() 
     // to wait for and receive new messages and pull them from the queue using move semantics. 
     // The received object should then be returned by the receive function. 
+    unique_lock<mutex> uni_lck(mtx);
+    _condition.wait();
     return r_val;
 }
 
@@ -74,10 +76,10 @@ void TrafficLight::cycleThroughPhases()
             auto cycle_duration = chrono::seconds((rand() % 3) + 4);    // limits cycle duration to 4-6 seconds       (rand() % 3) ---> produces random number between 0 & 2
 
             _currentPhase = (_currentPhase == TrafficLightPhase::red) ? TrafficLightPhase::red : TrafficLightPhase::green;  // toggles between "red" & "green"
-            cout << "Traffic Light is " << _currentPhase << endl;    // Traffic Light message
+            //cout << "Traffic Light is " << _currentPhase << endl;    // Traffic Light message
             //this_thread::sleep_for(chrono::seconds(rand_value));    // waits between 4 to 6 seconds before switching light
             //_currentPhase = TrafficLightPhase::green;
-            cout << "Traffic Light is green." << endl;    // Traffic Light message
+            //cout << "Traffic Light is green." << endl;    // Traffic Light message
             //this_thread::sleep_for(chrono::seconds(rand_value));    // waits between 4 to 6 seconds before switching light
 
 
