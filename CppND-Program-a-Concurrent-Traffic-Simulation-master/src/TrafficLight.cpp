@@ -30,9 +30,11 @@ void MessageQueue<T>::send(T &&msg)
 {
     // FP.4a : The method send should use the mechanisms std::lock_guard<std::mutex> 
     // as well as _condition.notify_one() to add a new message to the queue and afterwards send a notification.
+    this_thread::sleep_for(chrono::milliseconds(100));  // mimics work
     lock_guard<mutex> lck_gurd(mtx);    // Locks mutex when "lock_guard" is created & Unlocked when destroyed (goes out of scope)
+    cout << "Traffic Light is " << _msg << endl;    // Traffic Light message
+    _messages.push_back(move(msg));     // adds vector (deque) to queue
     _condition.notify_one();    // unblocks 1 of the threads waiting for condition_variable (_condition)         adds new message to queue & sends notification afterwards
-    cout << "Traffic Light is " << _currentPhase << endl;    // Traffic Light message
 }
 
 
