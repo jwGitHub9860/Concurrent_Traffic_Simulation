@@ -4,7 +4,6 @@
 #include <mutex>
 #include <deque>
 #include <condition_variable>
-#include <string>
 #include "TrafficObject.h"
 
 using namespace std;
