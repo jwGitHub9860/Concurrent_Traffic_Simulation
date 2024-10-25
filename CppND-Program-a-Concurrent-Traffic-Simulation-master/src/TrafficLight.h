@@ -23,7 +23,6 @@ class MessageQueue
 public:
     void send(T &&msg);
     T receive();
-    TrafficLightPhase&& msg;    // declares rvalue reference
 
 private:
     condition_variable cond_var;
