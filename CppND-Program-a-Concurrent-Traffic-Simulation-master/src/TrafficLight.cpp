@@ -28,6 +28,7 @@ void MessageQueue<T>::send(T &&msg)
     // as well as _condition.notify_one() to add a new message to the queue and afterwards send a notification.
     lock_guard<mutex> lck_gurd(mtx);    // Locks mutex when "lock_guard" is created & Unlocked when destroyed (goes out of scope)
     _condition.notify_one();    // unblocks 1 of the threads waiting for condition_variable (_condition)         adds new message to queue & sends notification afterwards
+    cout << "Traffic Light is " << _currentPhase << endl;    // Traffic Light message
 }
 
 
@@ -76,7 +77,7 @@ void TrafficLight::cycleThroughPhases()
             auto cycle_duration = chrono::seconds((rand() % 3) + 4);    // limits cycle duration to 4-6 seconds       (rand() % 3) ---> produces random number between 0 & 2
 
             _currentPhase = (_currentPhase == TrafficLightPhase::red) ? TrafficLightPhase::red : TrafficLightPhase::green;  // toggles between "red" & "green"
-            //cout << "Traffic Light is " << _currentPhase << endl;    // Traffic Light message
+            
             //this_thread::sleep_for(chrono::seconds(rand_value));    // waits between 4 to 6 seconds before switching light
             //_currentPhase = TrafficLightPhase::green;
             //cout << "Traffic Light is green." << endl;    // Traffic Light message
