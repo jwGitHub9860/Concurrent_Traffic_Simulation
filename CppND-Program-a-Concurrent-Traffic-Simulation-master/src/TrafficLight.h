@@ -72,9 +72,4 @@ private:
     std::mutex _mutex;
 };
 
-TrafficLightPhase TrafficLight::getCurrentPhase()  // define getter
-{
-    return _currentPhase;
-}
-
 #endif
