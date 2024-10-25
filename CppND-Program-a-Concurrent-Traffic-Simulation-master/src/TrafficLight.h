@@ -24,12 +24,12 @@ class MessageQueue
 public:
     void send(T &&msg);
     T receive();
-    deque<T> _queue;   // stores TrafficLightPhase objects     PUBLIC or PRIVATE?
     TrafficLightPhase&& r_val;    // declares rvalue reference      DONE CORRECTLY?     or is it
 
 private:
     condition_variable cond_var;
     mutex mtx;
+    deque<T> _queue;   // stores TrafficLightPhase objects
 };
 
 // FP.1 : Define a class „TrafficLight“ which is a child class of TrafficObject. 
