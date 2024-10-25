@@ -48,7 +48,6 @@ class TrafficLight : public TrafficObject   // child class of TrafficObject
 public:
     // constructor / destructor
     TrafficLight();
-    ~TrafficLight();
 
     // getters / setters
     TrafficLightPhase getCurrentPhase();
