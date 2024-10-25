@@ -66,15 +66,12 @@ void TrafficLight::cycleThroughPhases()
     while (true)    // infinite loop
     {
         srand(time(0));     // ensures each program run produces different random numbers
-        int rand_min = 4;   // Minimum random value
-        int rand_max = 6;   // Maximum random value
 
         int loop_num = 0;   // initializes "loop_num"
-        auto start_time = high_resolution_clock::now(); // gets current time BEFORE loop starts
 
         while (true)    // infinite loop
         {
-            //int rand_value = rand_min + rand() % (rand_max - rand_min + 1); // produces random number between 0 & "rand_max - rand_min"
+            auto cycle_duration = chrono::seconds((rand() % 3) + 4);    // limits cycle duration to 4-6 seconds       (rand() % 3) ---> produces random number between 0 & 2
 
             _currentPhase = TrafficLightPhase::red;
             cout << "Traffic Light is red." << endl;    // Traffic Light message
@@ -90,14 +87,9 @@ void TrafficLight::cycleThroughPhases()
             loop_num++;
             if (loop_num % 2 == 0)  // checks if 2 loops have passed
             {
-                auto end_time = high_resolution_clock::now();    // gets current time AFTER 2 loops end
-                auto cycle_duration = duration_cast<seconds>(end_time - start_time);    // calculates time duration BETWEEN 2 loops
-                
                 cout << "Two loop cycle time: " << cycle_duration.count() << " seconds" << endl;
 
                 this_thread::sleep_for(chrono::milliseconds(1));    // waits 1ms AFTER 2 cycles passed
-
-                auto start_time = high_resolution_clock::now(); // gets current time BEFORE loop starts
             }
         }
     }
