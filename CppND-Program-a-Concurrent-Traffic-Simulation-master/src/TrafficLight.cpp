@@ -17,8 +17,12 @@ T MessageQueue<T>::receive()
     // to wait for and receive new messages and pull them from the queue using move semantics. 
     // The received object should then be returned by the receive function. 
     unique_lock<mutex> uni_lck(mtx);    // performs queue modification under the lock
-    _condition.wait();
-    return r_val;
+    _condition.wait(uni_lck, [this] { return != _messages.empty(); })   // passes unique lock to "_condition"       [this] { return != _messages.empty(); } ----> lambda function that give "this" access to "_messages"
+    
+    msg = move(_messages.back());   // converts "_messages" value into rvalue using Move Semantics
+    _messages.pop_back();
+
+    return msg;
 }
 
 template <typename T>
