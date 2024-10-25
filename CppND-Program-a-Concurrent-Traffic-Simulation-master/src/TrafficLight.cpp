@@ -79,10 +79,7 @@ void TrafficLight::cycleThroughPhases()
     // Also, the while-loop should use std::this_thread::sleep_for to wait 1ms between two cycles. 
     while (true)    // infinite loop
     {
-        srand(time(0));     // ensures each program run produces different random numbers
-
-        int loop_num = 0;   // initializes "loop_num"
-
+        srand(time(NULL));     // ensures each program run produces different random numbers
         while (true)    // infinite loop
         {
             auto cycle_duration = chrono::seconds((rand() % 3) + 4);    // limits cycle duration to 4-6 seconds       (rand() % 3) ---> produces random number between 0 & 2
