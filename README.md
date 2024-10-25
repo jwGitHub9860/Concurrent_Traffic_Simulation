@@ -11,3 +11,5 @@
 "std::lock_guard." cplusplus.com, cplusplus.com/reference/mutex/lock_guard/. Accessed 24 Oct. 2024.
 
 "Why is enum class considered safer to use than plain enum?" Stack Overflow, 1 Nov. 1958, stackoverflow.com/questions/18335861/why-is-enum-class-considered-safer-to-use-than-plain-enum. Accessed 24 Oct. 2024.
+
+Zeil, Steven J. "Deques." 6 Oct. 2024, www.cs.odu.edu/~zeil/cs361/latest/Public/deques/index.html#:~:text=They%20are%20private%20because%20they,code%20that%20uses%20the%20deque. Accessed 24 Oct. 2024.
